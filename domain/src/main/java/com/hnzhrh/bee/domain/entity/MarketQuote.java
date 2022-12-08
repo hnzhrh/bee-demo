@@ -2,49 +2,45 @@ package com.hnzhrh.bee.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户表
+ * 
  * </p>
  *
  * @author erpang
- * @since 2022-12-07
+ * @since 2022-12-08
  */
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Users implements Serializable {
+@TableName("market_quote")
+public class MarketQuote implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键ID
-     */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
-    /**
-     * 用户姓名
-     */
-    private String userName;
+    private String curveName;
 
-    /**
-     * 分布式唯一ID
-     */
-    private Long userId;
+    private String instrumentType;
 
-    /**
-     * 电话号码
-     */
-    private String phone;
+    private String instrumentName;
+
+    private String tenor;
+
+    private String quote;
+
+    private String maturityDate;
+
+    private String mHPerDate;
 
     /**
      * 逻辑删除 1-已删除 0-未删除

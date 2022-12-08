@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
  */
 
 public class CodeGenerator {
-    public static final String url = "jdbc:mysql://47.98.51.143:3306/bee_user?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true";
+    public static final String url = "jdbc:mysql://47.98.51.143:3306/bank?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true";
     public static final String user = "root";
     public static final String password = "hnzhrh,1996";
 
@@ -41,7 +41,7 @@ public class CodeGenerator {
                 })
                 //策略配置
                 .strategyConfig(builder -> {
-                    builder.addInclude("users") // 设置需要生成的表名
+                    builder.addInclude("market_quote") // 设置需要生成的表名
                             .addTablePrefix("tbl_")// 设置过滤表前缀
                             .serviceBuilder() //开启service策略配置
                             .formatServiceFileName("%sService") //取消Service前的I

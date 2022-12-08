@@ -25,6 +25,10 @@
             <groupId>com.hnzhrh</groupId>
             <artifactId>domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.hnzhrh</groupId>
+            <artifactId>bee-common-base</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
