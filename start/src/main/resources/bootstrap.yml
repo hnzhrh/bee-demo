@@ -1,0 +1,15 @@
+server:
+  port: 7003
+spring:
+  profiles:
+    active: prod
+  servlet:
+    multipart:
+      max-file-size: 20MB # 限制文件上传的大小
+      max-request-size: 20MB # 限制请求大小
+  # 应用名称
+  application:
+    name: bee-demo
+logging:
+  level:
+    root: info

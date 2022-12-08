@@ -1,0 +1,6 @@
+/api/target/
+/.idea/
+/domain/target/
+/service/target/
+/start/target/
+/web/target/

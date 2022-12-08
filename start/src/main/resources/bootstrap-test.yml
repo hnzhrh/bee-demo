@@ -1,0 +1,40 @@
+spring:
+  #nacos
+  cloud:
+    nacos:
+      # nacos discovery 配置
+      discovery:
+        #分組
+        group: bee-demo
+        #nacos地址
+        server-addr:
+      config:
+        #分組
+        group: bee-demo
+        #nacos地址
+        server-addr:
+  redis:
+    database: 0
+    host:
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-active: 8
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-wait: -1
+        # 连接池中的最小空闲连接 默认 0
+        min-idle: 0
+    password:
+    port: 6379
+    timeout: 3000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bee_user?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: password
+
+
+
+

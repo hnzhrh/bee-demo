@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hnzhrh</groupId>
+    <artifactId>bee-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>api</module>
+        <module>domain</module>
+        <module>service</module>
+        <module>start</module>
+        <module>web</module>
+    </modules>
+
+    <parent>
+        <groupId>com.hnzhrh</groupId>
+        <artifactId>bee-spring-cloud-starter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <bee-demo.version>1.0-SNAPSHOT</bee-demo.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hnzhrh</groupId>
+            <artifactId>bee-knife4j-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.hnzhrh</groupId>
+                <artifactId>web</artifactId>
+                <version>${bee-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hnzhrh</groupId>
+                <artifactId>api</artifactId>
+                <version>${bee-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hnzhrh</groupId>
+                <artifactId>service</artifactId>
+                <version>${bee-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hnzhrh</groupId>
+                <artifactId>domain</artifactId>
+                <version>${bee-demo.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
