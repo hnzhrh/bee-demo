@@ -1,6 +1,9 @@
 package com.hnzhrh.bee.demo.api;
 
+import com.hnzhrh.bee.common.dto.Response;
+import com.hnzhrh.bee.common.dto.SingleResponse;
 import com.hnzhrh.bee.demo.dto.UserDTO;
+import com.hnzhrh.bee.demo.dto.UserQueryRequest;
 
 public interface UserServiceI {
     /**
@@ -18,4 +21,8 @@ public interface UserServiceI {
     String delete(String userId);
 
     void batchInsert();
+
+    SingleResponse<UserDTO> query(UserQueryRequest request);
+
+    Response testException();
 }

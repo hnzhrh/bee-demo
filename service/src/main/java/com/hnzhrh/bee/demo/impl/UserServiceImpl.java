@@ -1,8 +1,12 @@
 package com.hnzhrh.bee.demo.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.hnzhrh.bee.common.dto.Response;
+import com.hnzhrh.bee.common.dto.SingleResponse;
+import com.hnzhrh.bee.common.exception.BizException;
 import com.hnzhrh.bee.demo.api.UserServiceI;
 import com.hnzhrh.bee.demo.dto.UserDTO;
+import com.hnzhrh.bee.demo.dto.UserQueryRequest;
 import com.hnzhrh.bee.domain.entity.Users;
 import com.hnzhrh.bee.domain.mapper.UsersMapper;
 import org.springframework.stereotype.Service;
@@ -65,5 +69,25 @@ public class UserServiceImpl implements UserServiceI {
         users.add(users2);
 
         usersMapper.insertBatchSomeColumn(users);
+    }
+
+    @Override
+    public SingleResponse<UserDTO> query(UserQueryRequest request) {
+        QueryWrapper<Users> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(Users::getUserId, request.getUserId());
+        Users users = usersMapper.selectOne(queryWrapper);
+        if (!Objects.isNull(users)) {
+            UserDTO userDTO = new UserDTO();
+            userDTO.setUserId(String.valueOf(users.getUserId()));
+            userDTO.setUserName(users.getUserName());
+            userDTO.setPhone(users.getPhone());
+            return SingleResponse.of(userDTO);
+        }
+        return SingleResponse.of(null);
+    }
+
+    @Override
+    public Response testException() {
+        throw new BizException("业务异常抛出测试！");
     }
 }

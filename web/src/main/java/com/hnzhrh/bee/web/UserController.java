@@ -1,13 +1,13 @@
 package com.hnzhrh.bee.web;
 
+import com.hnzhrh.bee.common.dto.Response;
+import com.hnzhrh.bee.common.dto.SingleResponse;
 import com.hnzhrh.bee.demo.api.UserServiceI;
 import com.hnzhrh.bee.demo.dto.UserDTO;
+import com.hnzhrh.bee.demo.dto.UserQueryRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @Api(tags = "用户服务")
@@ -32,5 +32,18 @@ public class UserController {
     @GetMapping("/v1/batch")
     public void batchInsert() {
         userServiceI.batchInsert();
+    }
+
+    @ApiOperation("POST查询用户")
+    @PostMapping("/v1/query")
+    public SingleResponse<UserDTO> query(@RequestBody UserQueryRequest request) {
+        return userServiceI.query(request);
+    }
+
+    @ApiOperation(("测试异常抛出和捕获"))
+    @GetMapping("/v1/testException")
+    Response testException() {
+        userServiceI.testException();
+        return Response.buildSuccess();
     }
 }
